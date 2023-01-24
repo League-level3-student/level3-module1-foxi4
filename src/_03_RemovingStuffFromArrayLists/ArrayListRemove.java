@@ -26,7 +26,7 @@ public class ArrayListRemove {
         
         return yard;
     }
-    
+
     // 2. Write a method that removes the hash tag ('#') characters from the
     //    ArrayList and returns it
     public static ArrayList<Character> removeHashTags(ArrayList<Character> list) {
