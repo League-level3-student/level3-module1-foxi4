@@ -6,20 +6,28 @@ import java.util.Random;
 public class MurderOfCrows {
 
     ArrayList<Crow> theMurder = new ArrayList<Crow>();
-
+//the murder is the arraylist
     public static void main(String[] args) {
         MurderOfCrows murderOfCrows = new MurderOfCrows();
         murderOfCrows.initializeCrows();
         murderOfCrows.findTheDiamond();
+        
     }
-
     private void findTheDiamond() {
         // 1. One of the Crows has eaten the diamond. You need to search
         //    through the stomach of each Crow, then print the name of the
         //    guilty Crow.
-
+    	int innocentCrows = 0;
+    	for(int i=0; i<5; i++) {
+    		if(theMurder.get(i).getStomachContents().contains("diamond")) {
+        		System.out.println(theMurder.get(i).getName());
+        	}
+    		innocentCrows++;
+        }
+    
+    	
         // 2. How many innocent crows had to die before the diamond was found?
-
+System.out.print(innocentCrows -1 + " innocent crows had to die :( RIP");
     }
 
     private void initializeCrows() {
@@ -35,12 +43,12 @@ public class MurderOfCrows {
         int randomness = new Random().nextInt(theMurder.size());
         theMurder.get(randomness).getStomachContents().add("diamond");
     }
-}
+
 
 class Crow {
     private String name;
     private ArrayList<String> stomachContents = new ArrayList<String>();
-
+//array list
     public Crow(String name) {
         this.name = name;
         fillCrowsStomach();
@@ -67,4 +75,5 @@ class Crow {
     public ArrayList<String> getStomachContents() {
         return stomachContents;
     }
+}
 }
